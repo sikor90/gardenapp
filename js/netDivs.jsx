@@ -8,13 +8,19 @@ export default class NetDivs extends React.Component {
   }
   smallSquareNet(){
     this.setState({
-      power: 10
+      power: this.state.power/10
+    })
+  }
+  bigSquareNet(){
+    this.setState({
+      power: this.state.power*10
     })
   }
   componentWillReceiveProps(nextProps) {
-    console.log('netDivs component' + nextProps);
     if(nextProps.smaller == 'smaller'){
       this.smallSquareNet()
+    }else if(nextProps.smaller == 'bigger'){
+      this.bigSquareNet()
     }
   }
   render(){

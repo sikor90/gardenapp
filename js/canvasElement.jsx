@@ -85,9 +85,13 @@ export default class CanvasElement extends React.Component {
     }, () => console.log(this.state.clear));
     setTimeout(()=>this.setState({
       clear: false
-    }, () => console.log(this.state.clear)), 500)
+    }, () => console.log(this.state.clear)), 500);
     coordinates=[];
   }
+  clearChangingNetClick(){
+    this.props.callback();
+  }
+
   render() {
     if (coordinates.length>=3) {
       //poczatek trzeciego wektora X=coordinates[2][0] Y=coordinates[2][1]
@@ -109,7 +113,6 @@ export default class CanvasElement extends React.Component {
     return <div className="wrapper">
       <NetDivs smaller={this.props.smaller} canWidth={canvasWidth} canHeight={canvasHeight}/>
       <canvas ref="canvas" id="canvas_element" width={canvasWidth} height={canvasHeight} onClick={e=>this.mouseClick(e)} >Twoja przeglądarka nie obsługuje elementu Canvas.</canvas>
-      {/*<button onClick={e=>this.clearCanvasFunction(e)}>Wyczyść</button>*/}
     </div>;
   }
 }

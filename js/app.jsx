@@ -10,27 +10,31 @@ document.addEventListener('DOMContentLoaded', function() {
     constructor(props){
       super(props);
       this.state = {
-        clearCanvas: false,
-        changeSquare: 'bigger'
+        clearCanvas: false
       }
     }
     clearButtonClick(){
       this.setState({
         clearCanvas: true
       });
+      setTimeout(()=>this.setState({
+        clearCanvas: false
+      }), 500);
     }
-    changeSquareNet(){
-
+    changeSquareNet(size){
       this.setState({
-        changeSquare: 'smaller'
+        changeSquare: size
       });
+      setTimeout(()=>this.setState({
+        changeSquare: undefined
+      }), 500);
     }
     render() {
       return <div>
-        <CanvasElement clearOrNotCanvas={this.state.clearCanvas} smaller={this.state.changeSquare}/>
+        <CanvasElement clearOrNotCanvas={this.state.clearCanvas} smaller={this.state.changeSquare} />
         <ClearButton callback={()=>this.clearButtonClick()}/>
         <Area cosiek="siemka"/>
-        <ChangeNet callback={()=>this.changeSquareNet()} />
+        <ChangeNet callback={(size)=>this.changeSquareNet(size)} />
       </div>;
     }
   }

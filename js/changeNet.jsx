@@ -1,16 +1,12 @@
 import React from 'react';
+import BiggerButton from './biggerButton.jsx';
+import SmallerButton from './smallerButton.jsx';
 export default class ChangeNet extends React.Component {
-  buttonClick(){
-    this.props.callback();
-  }
+
   render(){
     return <div className="changeNet">
-      <button id="smallerButton" onClick={()=>this.buttonClick()}>
-        Zrób mniejsze oczka siatki
-      </button>
-      <button id="biggerButton" onClick={()=>this.buttonClick()}>
-        Zrób większe oczka siatki
-      </button>
+      <SmallerButton callback={this.props.callback} />
+      <BiggerButton callback={this.props.callback} />
     </div>
   }
 }

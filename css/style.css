@@ -52,6 +52,16 @@ button {
   height: 100%;
   display: inline-block;
 }
+.cell_20 {
+  border-right: 1px solid rgba(0,0,0,0.1);
+  width: 20px;
+  height: 100%;
+  display: inline-block;
+}
+.row_20 {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  height: 20px;
+}
 .area {
   position: absolute;
   top: 0;

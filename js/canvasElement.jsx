@@ -67,7 +67,7 @@ export default class CanvasElement extends React.Component {
     })
   }
   giveCoordinates(){
-    console.log('good' + coordinates);
+    this.props.callback(coordinates);
   }
   componentWillReceiveProps(nextProps) {
     if(nextProps.clearOrNotCanvas){
@@ -88,28 +88,8 @@ export default class CanvasElement extends React.Component {
     }, () => console.log(this.state.clear)), 500);
     coordinates=[];
   }
-  clearChangingNetClick(){
-    this.props.callback();
-  }
 
   render() {
-    if (coordinates.length>=3) {
-      //poczatek trzeciego wektora X=coordinates[2][0] Y=coordinates[2][1]
-      //koniec trzeciego wektora X=coordinates[2][2] Y=coordinates[2][3]
-      let firstLength = Math.floor(Math.sqrt(Math.pow((coordinates[0][2]-coordinates[0][0]),2)+Math.pow((coordinates[0][3]-coordinates[0][1]),2)));
-      let secondLength = Math.floor(Math.sqrt(Math.pow((coordinates[1][2]-coordinates[1][0]),2)+Math.pow((coordinates[1][3]-coordinates[1][1]),2)));
-      let thirdLength = Math.floor(Math.sqrt(Math.pow((coordinates[2][2]-coordinates[2][0]),2)+Math.pow((coordinates[2][3]-coordinates[2][1]),2)));
-      let fourthLength = Math.floor(Math.sqrt(Math.pow((coordinates[0][0]-coordinates[2][2]),2)+Math.pow((coordinates[0][3]-coordinates[2][3]),2)));
-
-      console.log(firstLength);
-      console.log(secondLength);
-      console.log(thirdLength);
-      console.log(fourthLength);
-      let circuit = firstLength + secondLength + thirdLength + fourthLength;
-      console.log("obwód = " + circuit);
-      console.log(coordinates);
-    }
-
     return <div className="wrapper">
       <NetDivs smaller={this.props.smaller} canWidth={canvasWidth} canHeight={canvasHeight}/>
       <canvas ref="canvas" id="canvas_element" width={canvasWidth} height={canvasHeight} onClick={e=>this.mouseClick(e)} >Twoja przeglądarka nie obsługuje elementu Canvas.</canvas>

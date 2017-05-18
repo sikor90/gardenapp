@@ -10,8 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
     constructor(props){
       super(props);
       this.state = {
-        clearCanvas: false
+        clearCanvas: false,
+        coordinates: "początkowy array"
       }
+    }
+    getCoordinates(goodCoordinates) {
+      this.setState({
+        coordinates: goodCoordinates
+      });
     }
     clearButtonClick(){
       this.setState({
@@ -30,10 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }), 500);
     }
     render() {
+      //callback={(array)=>this.getCoordinates(array)}
       return <div>
-        <CanvasElement clearOrNotCanvas={this.state.clearCanvas} smaller={this.state.changeSquare} />
+        <CanvasElement clearOrNotCanvas={this.state.clearCanvas} smaller={this.state.changeSquare} callback={(array)=>this.getCoordinates(array)} />
         <ClearButton callback={()=>this.clearButtonClick()}/>
-        <Area cosiek="siemka"/>
+        <Area coordinates={this.state.coordinates} />
         <ChangeNet callback={(size)=>this.changeSquareNet(size)} />
       </div>;
     }

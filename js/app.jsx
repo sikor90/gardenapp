@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NetDivs from './netDivs.jsx';
 
 const canvasWidth = Math.floor(window.innerWidth*0.7);
 //console.log('canvasWidth '+ canvasWidth);
@@ -7,44 +8,7 @@ const canvasHeight = Math.floor(window.innerHeight*0.8);
 //console.log('canvasHeight '+ canvasHeight);
 let coordinates = [];
 document.addEventListener('DOMContentLoaded', function() {
-          class NetDivs extends React.Component {
-            constructor(props){
-              super(props);
-              this.state = {
-                power: 100
-              }
-            }
-            smallSquareNet(){
-              this.setState({
-                power: 10
-              })
-            }
-            componentWillReceiveProps(nextProps) {
-              console.log(nextProps);
-              if(nextProps.smaller){
-                this.smallSquareNet()
-              }
-            }
-            render(){
-              let rowDivArray = [];
-              let countRow = canvasHeight/this.state.power;
-              let columnDivArray = [];
-              let countColumn = canvasWidth/this.state.power;
-              //console.log('count columns' + countColumn);
-              //console.log('count rows' + countRow);
-              for (let i = 0; i < countRow; i++) {
-                for (let j = 0; j < countColumn-1; j++) {
-                  columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}></div>);
-                }
-                rowDivArray.push(<div className={`row_${this.state.power}`} key={i}>{columnDivArray}</div>);
-                columnDivArray = [];
-              }
-              //console.log(rowDivArray);
-              return <div className='net'>
-                {rowDivArray}
-              </div>
-            }
-          }
+
                   class ChangeNet extends React.Component {
                     buttonClick(){
                       this.props.callback();
@@ -158,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       return <div className="wrapper">
-        <NetDivs smaller={this.state.smallSquare} />
+        <NetDivs smaller={this.state.smallSquare} canWidth={canvasWidth} canHeight={canvasHeight}/>
         <canvas ref="canvas" id="canvas_element" width={canvasWidth} height={canvasHeight} onClick={e=>this.mouseClick(e)} >Twoja przeglądarka nie obsługuje elementu Canvas.</canvas>
         {/*<button onClick={e=>this.clearCanvasFunction(e)}>Wyczyść</button>*/}
       </div>;

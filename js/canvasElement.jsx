@@ -107,7 +107,7 @@ export default class CanvasElement extends React.Component {
     }
 
     return <div className="wrapper">
-      <NetDivs smaller={this.state.smallSquare} canWidth={canvasWidth} canHeight={canvasHeight}/>
+      <NetDivs smaller={this.props.smaller} canWidth={canvasWidth} canHeight={canvasHeight}/>
       <canvas ref="canvas" id="canvas_element" width={canvasWidth} height={canvasHeight} onClick={e=>this.mouseClick(e)} >Twoja przeglądarka nie obsługuje elementu Canvas.</canvas>
       {/*<button onClick={e=>this.clearCanvasFunction(e)}>Wyczyść</button>*/}
     </div>;

@@ -12,8 +12,8 @@ export default class NetDivs extends React.Component {
     })
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-    if(nextProps.smaller){
+    console.log('netDivs component' + nextProps);
+    if(nextProps.smaller == 'smaller'){
       this.smallSquareNet()
     }
   }

@@ -32,9 +32,14 @@ export default class NetDivs extends React.Component {
     //console.log('count rows' + countRow);
     for (let i = 0; i < countRow; i++) {
       for (let j = 0; j < countColumn-1; j++) {
-        columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}></div>);
+        if(i==0) {
+          columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}>{j}</div>);
+        }else {
+          columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}></div>);
+        }
+
       }
-      rowDivArray.push(<div className={`row_${this.state.power}`} key={i}>{columnDivArray}</div>);
+      rowDivArray.push(<div className={`row_${this.state.power}`} key={i}><span>{i+1}</span>{columnDivArray}</div>);
       columnDivArray = [];
     }
     //console.log(rowDivArray);

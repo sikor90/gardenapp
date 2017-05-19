@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #d1d1cc;
+}
+button:hover{
+  cursor: pointer;
+}
 #app  {
   width: 100%;
   height: 100vh;
@@ -16,21 +22,18 @@
   overflow: hidden;
 }
 #canvas_element {
-  background: rgba(0, 255, 0, 0.1);
   z-index: 9;
   position: relative;
   top: -80vh;
 }
-button {
-  position: relative;
-  top: -80vh;
-  z-index: 10;
-}
 .net {
+  background: #93ff96;
+  opacity: 0.7;
   height: 80vh;
   width: 70vw;
   z-index: 1;
   position: relative;
+  font-size: 12px;
 }
 .row_100 {
   border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -57,16 +60,22 @@ button {
   height: 100%;
   display: inline-block;
 }
-.cell_20 {
+.cell_50 {
   border-right: 1px solid rgba(0,0,0,0.1);
-  width: 20px;
+  width: 50px;
   height: 100%;
   display: inline-block;
 }
-.row_20 {
+.row_50 {
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  height: 20px;
+  height: 50px;
+  position: relative;
 }
+.row_50 span {
+  position: absolute;
+  bottom: 0;
+}
+
 .area {
   position: absolute;
   top: 0;
@@ -75,12 +84,42 @@ button {
 }
 .buttonComponent {
   position: absolute;
-  top: 0;
+  top: 20vh;
+  left: 2.5vw;
+  color: #E8FCCF;
+  padding: 5px;
+  margin-top: 10px ;
+  border-radius: 5px;
+  background: #1a936f;
+  font-weight: bold;
+  max-width: 10vw;
 }
 .changeNet {
   position: absolute;
   left: 0;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 15vw;
+  justify-content: center;
 }
 .changeNet button {
+  color: #E8FCCF;
   display: block;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background: #1a936f;
+  font-weight: bold;
+}
+.area {
+  padding: 10px;
+}
+.area h2 {
+  color: #E8FCCF;
+  background: #1a936f;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+
 }

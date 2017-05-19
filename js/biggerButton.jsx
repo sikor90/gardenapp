@@ -5,7 +5,7 @@ export default class BiggerButton extends React.Component {
   }
   render(){
     return <button id="biggerButton" onClick={()=>this.buttonClick()}>
-      Zrób większe oczka siatki
+      Większe oczka siatki
     </button>
   }
 }

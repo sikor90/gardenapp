@@ -42,7 +42,7 @@ export default class Area extends React.Component {
     let area = (Math.sqrt((secondLength+firstLength+d1)*(secondLength+firstLength-d1)*(secondLength-firstLength+d1)*(-secondLength+firstLength+d1))/4)+(Math.sqrt((fourthLength+thirdLength+d1)*(fourthLength+thirdLength-d1)*(fourthLength-thirdLength+d1)*(thirdLength-fourthLength+d1))/4)
     //return [d1, ' ', d2, ' aPierwszejProstej: ', aPierwszejProstej, ' bPierwszejProstej: ', bPierwszejProstej, ' aDrugiejProstej: ', aDrugiejProstej, ' bDrugiejProstej: ', bDrugiejProstej];
     if(area){
-      return area;
+      return area.toFixed(2);
     }else {
       return ""
     }
@@ -50,8 +50,8 @@ export default class Area extends React.Component {
   render() {
 
     return <div className='area'>
-      <h2>Jakies pole {this.countArea()}</h2>
-      <h2>Jakis obwód {this.countCircuit()}</h2>
+      <h2>Pole: {this.countArea()}</h2>
+      <h2>Obwód: {this.countCircuit()}</h2>
     </div>
   }
 }

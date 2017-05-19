@@ -38,9 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
     render() {
       return <div>
         <CanvasElement clearOrNotCanvas={this.state.clearCanvas} smaller={this.state.changeSquare} callback={(array)=>this.getCoordinates(array)} />
-        <ClearButton callback={()=>this.clearButtonClick()}/>
+
         <Area coordinates={this.state.coordinates} />
         <ChangeNet callback={(size)=>this.changeSquareNet(size)} />
+        <ClearButton callback={()=>this.clearButtonClick()}/>
       </div>;
     }
   }

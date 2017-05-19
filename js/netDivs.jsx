@@ -8,12 +8,12 @@ export default class NetDivs extends React.Component {
   }
   smallSquareNet(){
     this.setState({
-      power: this.state.power/10
+      power: this.state.power/2
     })
   }
   bigSquareNet(){
     this.setState({
-      power: this.state.power*10
+      power: this.state.power*2
     })
   }
   componentWillReceiveProps(nextProps) {
@@ -33,13 +33,13 @@ export default class NetDivs extends React.Component {
     for (let i = 0; i < countRow; i++) {
       for (let j = 0; j < countColumn-1; j++) {
         if(i==0) {
-          columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}>{j}</div>);
+          columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}>{j*this.state.power}</div>);
         }else {
           columnDivArray.push(<div className={`cell_${this.state.power}`} key={Math.ceil(countRow)+j}></div>);
         }
 
       }
-      rowDivArray.push(<div className={`row_${this.state.power}`} key={i}><span>{i+1}</span>{columnDivArray}</div>);
+      rowDivArray.push(<div className={`row_${this.state.power}`} key={i}><span>{(i+1)*this.state.power}</span>{columnDivArray}</div>);
       columnDivArray = [];
     }
     //console.log(rowDivArray);

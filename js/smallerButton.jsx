@@ -5,7 +5,7 @@ export default class SmallerButton extends React.Component {
   }
   render(){
     return <button id="smallerButton" onClick={()=>this.buttonClick()}>
-      Zrób MNIEJSZE oczka siatki
+      Mniejsze oczka siatki
     </button>
   }
 }
